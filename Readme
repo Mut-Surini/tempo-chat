@@ -1,0 +1,7 @@
+This is an app that using for temporary chat
+
+First step you need to login into login page and insert a nickname
+After that you will be redirect into chat page where the chat was started
+You can type in input field and sent a message into everyone
+
+#Remember to build a collection named chats inside your localhost database/tempoChat
