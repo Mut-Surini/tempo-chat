@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tempo Chat</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <link rel="stylesheet" href="./output.css"> -->
+</head>
+<body class="overflow-x-hidden" style="height: 600px;">
+    <div class="header top-0 flex text-lg uppercase fixed z-20 justify-between p-3 text-white font-extrabold" style="width: 100%; background-color: #3c58ea; height: 10%;">
+        <div class="day" style="width: 33%;"><a href="login" class="text-center px-3 py-2 rounded-lg" style="background-color: #334dd0;">LOG OUT</a></div>
+        <div class="icon text-center hover:cursor-pointer" style="width: 33%;"><%= username %></div>
+        <div class="time text-right" style="width: 33%;">12:00</div>    
+      </div>
+    <div class="header top-0 flex text-lg uppercase z-20 justify-between p-3 text-white font-extrabold" style="width: 100%; background-color: #3c58ea; height: 10%;">
+      <div class="day focus:cursor-pointer" style="width: 33%;">Logout</div>
+      <div class="icon text-center hover:cursor-pointer" style="width: 33%;">-</div>
+      <div class="time text-right" style="width: 33%;" id="time">12:00</div>
+    </div>
+    <div class="chat-container bg-blue-50 px-6 mx-auto pt-44 pb-24" style="width: 90%;">
+        <div class="list-chat mx-auto p-2 h-auto">
+          <% for(let i = 0; i < data.length; i++){ %>
+            <% if (data[i].username === username) { %>
+              <% if (i < data.length-1) { %>
+                <% if (data[i].username === data[i+1].username) { %>
+                  <div class="chat flex mt-1 object-right justify-end">
+                    <div class="p-2 font-semibold rounded-lg h-12 mt-4 -mb-2 mr-11" style="background-color: #3c58ea;"><p class="text-white py-1 px-3"><%= data[i].message %></p></div>
+                  </div>
+                <% }else{ %>
+                  <div class="chat flex mt-3 justify-end">
+                    <div class="p-2 font-semibold rounded-lg h-12 mt-2 -mr-3" style="background-color: #3c58ea;"><p class="text-white py-1 px-3"><%= data[i].message %></p></div>
+                    <div class="profil w-14 h-14 rounded-lg z-10" style="background-color: #3c58ea;"><div class="profil-picture w-12 h-12 bg-white mx-auto mt-1 rounded"></div></div>
+                  </div>
+                  <p class="text-right font-bold" style="color: #334dd0;"><%= data[i].username %> ~</p>
+                <% } %> 
+              <% } else { %>
+                <div class="chat flex mt-3 justify-end">
+                  <div class="p-2 font-semibold rounded-lg h-12 mt-2 -mr-3" style="background-color: #3c58ea;"><p class="text-white py-1 px-3"><%= data[i].message %></p></div>
+                  <div class="profil w-14 h-14 rounded-lg z-10" style="background-color: #3c58ea;"><div class="profil-picture w-12 h-12 bg-white mx-auto mt-1 rounded"></div></div>
+                </div>
+                <p class="text-right font-bold" style="color: #334dd0;"><%= data[i].username %> ~</p>
+              <% } %>             
+            <% }else{ %>
+              <% if (i < data.length-1) { %>
+                <% if (data[i].username === data[i+1].username) { %>
+                  <div class="chat flex mt-1 object-right">
+                    <div class="p-2 font-semibold rounded-lg h-12 mt-4 -mb-2 ml-10" style="background-color: #3c58ea;"><p class="text-white py-1 px-3"><%= data[i].message %></p></div>
+                  </div>
+                <% }else{ %>
+                  <div class="chat flex mt-3">
+                    <div class="profil w-14 h-14 rounded-lg z-10" style="background-color: #3c58ea;"><div class="profil-picture w-12 h-12 bg-white mx-auto mt-1 rounded"></div></div>
+                    <div class="p-2 font-semibold rounded-lg h-12 mt-2 -ml-3" style="background-color: #3c58ea;"><p class="text-white py-1 px-3"><%= data[i].message %></p></div>
+                  </div>
+                  <p class="font-bold" style="color: #334dd0;">~ <%= data[i].username %></p>
+                <% } %>   
+              <% }else{ %>
+                  <div class="chat flex mt-3">
+                    <div class="profil w-14 h-14 rounded-lg z-10" style="background-color: #3c58ea;"><div class="profil-picture w-12 h-12 bg-white mx-auto mt-1 rounded"></div></div>
+                    <div class="p-2 font-semibold rounded-lg h-12 mt-2 -ml-3" style="background-color: #3c58ea;"><p class="text-white py-1 px-3"><%= data[i].message %></p></div>
+                  </div>
+                  <p class="font-bold" style="color: #334dd0;">~ <%= data[i].username %></p>
+            <% } %>
+          <% } %>
+          <% } %>
+          </div>
+        </div>
+    </div>
+    <div class="input p-3 fixed z-20 bottom-0" style="background-color: #3c58ea; width: 100%;">
+        <form class="max-w-sm flex" method="post">
+            <div class="ml-8">
+              <input
+                type="text"
+                name="chat"
+                style="background-color: #fff; width: 1150px;"
+                class="py-4 px-6 font-extrabold uppercase rounded-full border-none focus:outline-none focus:text-gray-400"
+                placeholder="Type your chat here..."
+                required
+              />
+            </div>
+            <div class="">
+              <button
+                type="submit"
+                style="background-color: #334dd0; color: #fff;"
+                class="text-center p-4 rounded-e-full font-extrabold relative right-12 rounded-tl-full"
+              >
+                KIRIM
+              </button>
+            </div>
+          </form>
+    </div>
+    <script>
+      const time = document.getElementById('time');
+      time.textContent = "12:01";
+      function time() {
+        var d = new Date();
+        var s = d.getSeconds();
+        var m = d.getMinutes();
+        var h = d.getHours();
+        time.textContent = 
+          ("0" + h).substr(-2) + ":" + ("0" + m).substr(-2) + ":" + ("0" + s).substr(-2);
+      }
+
+      setInterval(time, 1000);
+    </script>
+</body>
+</html>

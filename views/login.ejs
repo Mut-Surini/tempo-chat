@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Tempo</title>
+    <!-- <link rel="stylesheet" href="./output.css" /> -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body style="height: 100%; overflow: hidden;">
+    <div class="container relative">
+      <div class="deco">
+        <div class="deco1 w-60 h-60 absolute rotate-45 -top-36 -left-32" style="background-color: #3c58ea; border-radius: 30px;"></div>
+        <div class="deco1 w-60 h-60 absolute -rotate-45 -bottom-40 -right-32" style="background-color: #3c58ea; border-radius: 30px;"></div>
+      </div>
+      <div
+        class="login-container p-12 mx-auto w-1"
+        style="
+          width: 50%;
+          height: 300px;
+          background-color: #3c58ea;
+          border-radius: 35px;
+          margin-top: 130px;
+        "
+      >
+        <div class="login-deco relative">
+            <div class="deco1 w-36 h-24 absolute rounded-br-full rounded-tl-full -rotate-6" style="background-color: #334dd0; bottom: -290px; right: -75px;"></div>
+            <div class="deco1 w-36 h-24 absolute rounded-br-full rounded-tl-full -rotate-6" style="background-color: #334dd0; bottom: -10px; left: -85px;"></div>
+        </div>
+        <div class="login-content mt-9">
+          <h1
+            class="font-extrabold m-3 text-center text-6xl uppercase"
+            style="color: #ffffff"
+          >
+            Tempo Chat
+          </h1>
+          <form class="max-w-sm mx-auto flex mt-8" method="post">
+            <div class="mb-5 ml-8">
+              <input
+                type="text"
+                name="username"
+                style="background-color: #344dd0"
+                class="py-4 px-6 font-extrabold uppercase placeholder-white text-white rounded-full border-none focus:outline-none focus:text-white"
+                placeholder="Username"
+                required
+              />
+            </div>
+            <div class="mb-5">
+              <button
+                type="submit"
+                style="background-color: #ffffff; color: #334dd0;"
+                class="text-center p-4 rounded-e-full font-extrabold relative right-12 rounded-tl-full"
+              >
+                LOGIN
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
